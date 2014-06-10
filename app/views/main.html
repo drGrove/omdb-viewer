@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-xs-12 col-sm-12 col-md-4">
+      <div class="col-xs-12 col-sm-12 col-md-2">
         <div class="moviePoster">
           <img
             data-ng-src="{{movie.Poster}}"
@@ -33,11 +33,20 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-8">
+      <div class="col-xs-12 col-sm-12 col-md-10">
         <div class="row">
           <div class="col-xs-12">
-            <h1>{{movie.Title}}</h1>
-            <span class="year">({{movie.Year}})</span>
+            <h1>{{movie.Title}} <span class="year">({{movie.Year}})</span></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <span
+              class="rating"
+              data-ng-bind="movie.Rating"
+            >
+            </span>
+            {{movie.Runtime}} - {{movie.Genre.split(',').join(' | ')}} - {{movie.Released}}
           </div>
         </div>
       </div>
