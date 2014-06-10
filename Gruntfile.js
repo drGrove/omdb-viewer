@@ -27,6 +27,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less:dev'],
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['bowerInstall']
@@ -57,7 +61,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+        ],
+        tasks: ['less']
       }
     },
 
@@ -180,6 +185,28 @@ module.exports = function (grunt) {
             },
             post: {}
           }
+        }
+      }
+    },
+    
+    // Compile less stylesheets
+    less: {
+      dev: {
+        options: {
+          paths: ['<%= yeoman.app %>/styles'],
+          ieCompat: false
+        },
+        files: {
+          ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.less"
+        }
+      },
+      dist: {
+        options: {
+          paths: ['<%= yeoman.app %>/styles'],
+          ieCompat: false
+        },
+        files: {
+          "<%= yeoman.dist %>/styles/main.css": "<%= yeoman.app %>/styles/main.less"
         }
       }
     },
@@ -380,6 +407,7 @@ module.exports = function (grunt) {
     'ngmin',
     'copy:dist',
     'cdnify',
+    'less',
     'cssmin',
     'uglify',
     'rev',

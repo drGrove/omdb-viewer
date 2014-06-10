@@ -1,7 +1,10 @@
 {
   "name": "omdb",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-contrib-less": "^0.11.1",
+    "karma-chrome-launcher": "^0.1.4"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",
