@@ -2,7 +2,7 @@
   <h1 class="mainTitle text-center">
     Movie Search
   </h1>
-  <form class="form" role="form">
+  <form class="form" role="form" data-ng-submit="search()">
     <div class="input-group">
       <input
         type="text"
@@ -11,8 +11,8 @@
         placeholder="Movie Title"
       />
       <span class="input-group-btn">
-        <button 
-          class="btn btn-default" 
+        <button
+          class="btn btn-default"
           type="button"
           data-ng-click="search()"
         >
