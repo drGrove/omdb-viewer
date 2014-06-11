@@ -19,6 +19,26 @@ angular.module('omdbApp')
       return get('?' + serialize(title))
     }
 
+    /**
+     * Returns OMDB movies for search
+     * @public
+     * @params {String} Title
+     * @returns {Array} Movie Objects
+     */
+    omdb.search = function(title){
+      return get("?" + serialize(title))
+    }
+
+    /**
+     * Returns OMDB item by IMDB id
+     * @public
+     * @params {String} imdbid
+     * @returns {Object} omdbResponsePromise
+     */
+    omdb.getById = function(imdbid){
+      return get("?" + serialize(imdbid))
+    }
+
 
     /**
      * Makes a get request to the endpoint
@@ -46,7 +66,7 @@ angular.module('omdbApp')
        }
       }
       return str.join("&");
-    } 
+    }
 
     return omdb;
   });
