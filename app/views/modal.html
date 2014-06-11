@@ -1,0 +1,56 @@
+<div>
+  <div class="modal-header">
+    {{movie.Title}} <span class="year">({{movie.Year}})</span>
+    <div class="pull-right">
+      <button 
+        class="close" 
+        type="button"
+        data-ng-click="close()"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="moviePoster">
+          <img
+            data-ng-src="{{movie.Poster}}"
+            alt="{{movie.Title}}"
+          />
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-8">
+        <div class="row">
+          <div class="col-xs-12">
+            <b>{{movie.Title}}</b> ({{movie.Year}})
+          </div>
+          <div class="col-xs-12">
+            <span
+              class="rating"
+              data-ng-bind="movie.Rated"
+            >
+            </span>
+            {{movie.Runtime}} - {{movie.Genre.split(',').join(' | ')}} - {{movie.Released}}
+          </div>
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-12">
+                <b>Ratings:</b> {{movie.imdbRating}}/10 from {{movie.imdbVotes}} IMDB Users
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <b>Metascore:</b> {{movie.Metascore}}<br />
+            <b>Writer(s):</b> {{movie.Writer}}<br />
+            <b>Actor(s):</b> {{movie.Actors}}<br />
+            <b>Director:</b> {{movie.Direcotr}}<br />
+            <b>Award(s):</b> {{movie.Awards}}<br />
+            <b>Plot:</b> {{movie.Plot}}<br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
