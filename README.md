@@ -1,6 +1,5 @@
 # OMDB Viewer
 ## A Movie Searching GUI for OMDB
-=========================================
 
 ## Getting Started
 ```bash
