@@ -8,7 +8,7 @@ angular.module('omdbApp')
      * Basic Search
      * @public
      */
-    $scope.search = function(){
+    $scope.basicSearch = function(){
       omdb.search($scope.search).then(function(response){
         if(response.data.Reponse == "False"){
           Storage.set('lastSearch', null)
