@@ -1,5 +1,5 @@
 <ng-include src="'/views/nav.html'"></ng-include>
-<div class="movieList container">
+<div class="movieList container fill">
   <div data-ng-show="noMovies">
     No Movies Could be found... Please try another Search Query
   </div>
@@ -7,7 +7,7 @@
     <li
       data-ng-repeat="movie in movieList"
     >
-      <a href="/#/i/{{movie.imdbID}}" title="{{movie.Title">
+    <a href="/#/i/{{movie.imdbID}}" title="{{movie.Title}} ({{movie.Year}}) ({{movie.Type}})">
         {{movie.Title}} ({{movie.Year}}) ({{movie.Type}})
       </a>
     </li>
