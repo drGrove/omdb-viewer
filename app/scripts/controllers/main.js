@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('omdbApp')
-  .controller('MainCtrl', function ($scope, omdb) {
+  .controller('MainCtrl', function ($scope, omdb, $modal) {
     $scope.search = {};
     $scope.search.tomatoes = true
 
@@ -11,7 +11,16 @@ angular.module('omdbApp')
      */
     $scope.basicSearch = function(){
       omdb.getByTitle($scope.search).then(function(response){
-        $scope.movie = response.data 
+        $modal.open(
+        { templateUrl: '/views/modal.html'
+          , controller: 'MovieCtrl'
+          , size: 'lg'
+          , resolve:
+          { movieData: function(){
+              return response.data
+            }
+          }
+        })
       })
     }
   });
