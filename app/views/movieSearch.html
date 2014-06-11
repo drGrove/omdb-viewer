@@ -1,0 +1,14 @@
+<div class="movieList container">
+  <div data-ng-show="noMovies">
+    No Movies Could be found... Please try another Search Query
+  </div>
+  <ul class="list" data-ng-hide="noMovies">
+    <li
+      data-ng-repeat="movie in movieList"
+    >
+      <a href="/#/i/{{movie.imdbID}}" title="{{movie.Title">
+        {{movie.Title}} ({{movie.Year}}) ({{movie.Type}})
+      </a>
+    </li>
+  </ul>
+</div>
