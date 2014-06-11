@@ -1,16 +1,26 @@
 'use strict';
 
 angular.module('omdbApp')
-  .controller('MainCtrl', function ($scope, omdb, $modal) {
+  .controller('MainCtrl', function ($scope, omdb, $location, Storage) {
     $scope.search = {};
-    $scope.search.tomatoes = true
+    $scope.movies = [];
 
     /**
      * Basic Search
      * @public
      */
     $scope.basicSearch = function(){
-      omdb.getByTitle($scope.search).then(function(response){
+      omdb.search($scope.search).then(function(response){
+        if(response.data.Reponse == "False"){
+          Storage.set('lastSearch', null)
+          alert('The search query "' + $scope.search.s + '" gave no results');
+        } else {
+
+          var searchQuery = $scope.search.s.split(' ').join("+");
+          Storage.set('lastSearch', response.data.Search)
+          $location.path('/s/' + searchQuery)
+        }
+        /*
         $modal.open(
         { templateUrl: '/views/modal.html'
           , controller: 'MovieCtrl'
@@ -21,6 +31,7 @@ angular.module('omdbApp')
             }
           }
         })
+        */
       })
     }
   });
