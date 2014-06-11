@@ -3,13 +3,12 @@
 angular.module('omdbApp')
   .controller('MainCtrl', function ($scope, omdb, $location, Storage) {
     $scope.search = {};
-    $scope.movies = [];
 
     /**
      * Basic Search
      * @public
      */
-    $scope.basicSearch = function(){
+    $scope.search = function(){
       omdb.search($scope.search).then(function(response){
         if(response.data.Reponse == "False"){
           Storage.set('lastSearch', null)
@@ -20,18 +19,6 @@ angular.module('omdbApp')
           Storage.set('lastSearch', response.data.Search)
           $location.path('/s/' + searchQuery)
         }
-        /*
-        $modal.open(
-        { templateUrl: '/views/modal.html'
-          , controller: 'MovieCtrl'
-          , size: 'lg'
-          , resolve:
-          { movieData: function(){
-              return response.data
-            }
-          }
-        })
-        */
       })
     }
   });

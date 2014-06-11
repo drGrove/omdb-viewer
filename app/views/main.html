@@ -1,21 +1,29 @@
 <div class="container">
-<form class="form" role="form">
-  <div class="form-group">
-    <div class="col-xs-10">
+  <h1 class="mainTitle text-center">
+    Movie Search
+  </h1>
+  <form class="form" role="form">
+    <div class="input-group">
       <input
         type="text"
         class="form-control"
         data-ng-model="search.s"
         placeholder="Movie Title"
       />
+      <span class="input-group-btn">
+        <button 
+          class="btn btn-default" 
+          type="button"
+          data-ng-click="search()"
+        >
+          Find Movie
+        </button>
+      </span>
+    </div><!-- /input-group -->
+  </form>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      Powered by <a href="http://omdbapi.com" title="OMDB API">OMDB Api</a>. An Open Movie Database
     </div>
   </div>
-  <button
-    type="button"
-    class="btn btn-default"
-    data-ng-click="basicSearch()"
-  >
-    Find Movie
-  </button>
-</form>
 </div>
