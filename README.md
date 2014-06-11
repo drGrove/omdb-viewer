@@ -1,6 +1,6 @@
 # OMDB Viewer
 ## A Movie Searching GUI for OMDB
-
+[![Build Status](https://travis-ci.org/drGrove/omdb-viewer.svg?branch=master)](https://travis-ci.org/drGrove/omdb-viewer)
 ## Getting Started
 ```bash
 git clone http://github.com/drGrove/omdb-viewer.git
